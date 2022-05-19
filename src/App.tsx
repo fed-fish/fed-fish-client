@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { FishForm } from './components/fish-form/fish-form';
 import { FishList } from './components/fish-list/fish-list';
 
 import { Header } from './components/header/header';
@@ -15,6 +16,7 @@ export function App(): JSX.Element {
 	return (
 		<div className="App">
 			<Header />
+			<FishForm />
 			<FishList fish={ fish } />
 		</div>
 	);

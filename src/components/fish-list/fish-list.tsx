@@ -15,7 +15,7 @@ export function FishList(props: FishListProps): JSX.Element {
 
 	function makeFishListItems(): JSX.Element[] {
 		return props.fish.map((fish) => {
-			return <FishItem fish={ fish }/>;
+			return <FishItem fish={ fish } key={ fish._id } />;
 		});
 	}
 }

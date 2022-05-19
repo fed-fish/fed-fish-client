@@ -1,7 +1,7 @@
 .header {
 	display: flex;
 	justify-content: space-between;
-	padding: 10px 10%;
+	padding: 10px 200px;
 	border-bottom: 1px solid white;
 }
 
@@ -9,7 +9,7 @@
 	text-align: center;
 }
 
-.add-fish-btn {
+.add-fish-button {
 	padding: 10px 20px;
 	border: none;
 	border-radius: 10px;
@@ -19,11 +19,11 @@
 	cursor: pointer;
 }
 
-.add-fish-btn:hover {
+.add-fish-button:hover {
 	background-color: white;
 	color: #75b585;
 }
 
-.add-fish-btn:active {
+.add-fish-button:active {
 	color: #245eb6;
 }

@@ -1,4 +1,5 @@
 export interface Fish {
+	_id: string;
 	name: string;
 	feedingDays: number;
 	withholdingDays: number;

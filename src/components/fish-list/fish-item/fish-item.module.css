@@ -38,3 +38,16 @@
 .fish-item-button:active {
 	color: #245eb6;
 }
+
+.warning {
+	font-size: 18px;
+	margin-bottom: 10px;
+}
+
+.current-status {
+	margin-bottom: 10px;
+}
+
+.ration-info {
+	font-size: 12px;
+}
