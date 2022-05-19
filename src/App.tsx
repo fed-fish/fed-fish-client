@@ -8,6 +8,7 @@ import { fetchFish } from './transport/transport';
 
 export function App(): JSX.Element {
 	const [fish, setFish] = useState<Fish[]>([]);
+	const [showForm, setShowForm] = useState(false);
 
 	useEffect(() => {
 		getFish();
@@ -15,8 +16,8 @@ export function App(): JSX.Element {
 
 	return (
 		<div className="App">
-			<Header />
-			<FishForm />
+			<Header isFormShown={ showForm } toggleForm={ toggleForm } />
+			{ showForm && <FishForm /> }
 			<FishList fish={ fish } />
 		</div>
 	);
@@ -25,5 +26,9 @@ export function App(): JSX.Element {
 		const fishResponse = await fetchFish();
 		
 		setFish(fishResponse);
+	}
+
+	function toggleForm(): void {
+		setShowForm((prevState) => !prevState);
 	}
 }
