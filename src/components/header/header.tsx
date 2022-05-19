@@ -6,6 +6,7 @@ export function Header(): JSX.Element {
 			<h1 className={ styles.logo }>
 				Fed fish
 			</h1>
+			<button className={ styles['add-fish-btn'] }>Add fish</button>
 		</header>
 	);
 }

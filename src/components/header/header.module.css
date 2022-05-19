@@ -1,8 +1,29 @@
 .header {
-	padding: 10px 0;
+	display: flex;
+	justify-content: space-between;
+	padding: 10px 10%;
 	border-bottom: 1px solid white;
 }
 
 .logo {
 	text-align: center;
+}
+
+.add-fish-btn {
+	padding: 10px 20px;
+	border: none;
+	border-radius: 10px;
+	background-color: #75b585;
+	font-size: 16px;
+	color: inherit;
+	cursor: pointer;
+}
+
+.add-fish-btn:hover {
+	background-color: white;
+	color: #75b585;
+}
+
+.add-fish-btn:active {
+	color: #245eb6;
 }
