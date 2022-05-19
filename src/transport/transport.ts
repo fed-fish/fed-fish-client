@@ -1,5 +1,3 @@
-import { config } from 'dotenv';
-
 import { FeedingAction, Fish } from '../objects-and-constants';
 
 const enum HttpMethod {
@@ -9,11 +7,9 @@ const enum HttpMethod {
 	Delete = 'DELETE',
 }
 
-config();
+const baseUrl = 'http://localhost:3333';
 
-const baseUrl = process.env.PUBLIC_URL;
-
-export async function getFish(): Promise<Fish[]> {
+export async function fetchFish(): Promise<Fish[]> {
 	const fish = await apiFetch<Fish[]>(
 		`${baseUrl}/fish`,
 	);
@@ -21,7 +17,7 @@ export async function getFish(): Promise<Fish[]> {
 	return fish;
 }
 
-export async function getFishInfo(id: string): Promise<Fish> {
+export async function fetchFishInfo(id: string): Promise<Fish> {
 	const fishInfo = await apiFetch<Fish>(
 		`${baseUrl}/fish/${id}`,
 	);

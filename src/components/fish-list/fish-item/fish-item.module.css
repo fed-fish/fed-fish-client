@@ -1,0 +1,40 @@
+.fish-item {
+	display: flex;
+	width: fit-content;
+	margin: 0 auto 20px;
+	padding: 10px 20px;
+	border-radius: 10px;
+	background-color: #75b585;
+}
+
+.fish-item-info h4 {
+	margin-bottom: 10px;
+}
+
+.fish-item-controls {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	margin-left: 40px;
+}
+
+.fish-item-button {
+	display: block;
+	width: 80px;
+	height: 40px;
+	padding: 0 5px;
+	border: none;
+	border-radius: 10px;
+	background-color: #245eb6;
+	color: inherit;
+	cursor: pointer;
+}
+
+.fish-item-button:hover {
+	background-color: white;
+	color: #75b585;
+}
+
+.fish-item-button:active {
+	color: #245eb6;
+}

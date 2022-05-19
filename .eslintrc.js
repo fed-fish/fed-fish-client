@@ -20,5 +20,6 @@ module.exports = {
 		'object-curly-spacing': ['error', 'always'],
 		'comma-dangle': ['error', 'always-multiline'],
 		'@typescript-eslint/explicit-member-accessibility': ['error'],
+		'@typescript-eslint/no-empty-interface': ['off'],
 	},
 };
