@@ -1,4 +1,4 @@
-import { FeedingAction, Fish } from '../objects-and-constants';
+import { FeedingAction, Fish, PostFishParams } from '../objects-and-constants';
 
 const enum HttpMethod {
 	Get = 'GET',
@@ -25,7 +25,7 @@ export async function fetchFishInfo(id: string): Promise<Fish> {
 	return fishInfo;
 }
 
-export async function addFish(fish: Fish): Promise<Fish> {
+export async function postFish(fish: PostFishParams): Promise<Fish> {
 	const newFish = await apiFetch<Fish>(
 		`${baseUrl}/fish`,
 		HttpMethod.Post,

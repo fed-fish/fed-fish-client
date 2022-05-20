@@ -9,6 +9,14 @@ export interface Fish {
 	withholdedUp: boolean;
 }
 
+export interface PostFishParams {
+	name: string;
+	feedingDays: number;
+	withholdingDays: number;
+	fedDays: number;
+	withholdedDays: number;
+}
+
 export enum FeedingAction {
 	Feed = 'Feed',
 	Withhold = 'Withhold',
