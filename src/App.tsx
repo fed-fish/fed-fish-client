@@ -3,8 +3,18 @@ import { FishForm } from './components/fish-form/fish-form';
 import { FishList } from './components/fish-list/fish-list';
 
 import { Header } from './components/header/header';
-import { Fish, PostFishParams } from './objects-and-constants';
-import { fetchFish, postFish } from './transport/transport';
+
+import {
+	FeedingAction,
+	Fish,
+	PostFishParams,
+} from './objects-and-constants';
+
+import {
+	fetchFish,
+	postFish,
+	updateFish,
+} from './transport/transport';
 
 export function App(): JSX.Element {
 	const [fish, setFish] = useState<Fish[]>([]);
@@ -18,7 +28,7 @@ export function App(): JSX.Element {
 		<div className="App">
 			<Header isFormShown={ showForm } toggleForm={ toggleForm } />
 			{ showForm && <FishForm addFish={ addFish } /> }
-			<FishList fish={ fish } />
+			<FishList fish={ fish } feedFish={ feedFish } />
 		</div>
 	);
 
@@ -34,6 +44,12 @@ export function App(): JSX.Element {
 		setFish((prevState) => {
 			return [...prevState, newFish];
 		});
+	}
+
+	async function feedFish(id: string, feedingAction: FeedingAction): Promise<void> {
+		await updateFish(id, feedingAction);
+
+		await getFish();
 	}
 
 	function toggleForm(): void {

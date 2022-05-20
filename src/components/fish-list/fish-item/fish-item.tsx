@@ -1,13 +1,15 @@
-import { Fish } from '../../../objects-and-constants';
+import { FeedingAction, Fish } from '../../../objects-and-constants';
 
 import styles from './fish-item.module.css';
 
 interface FishItemProps {
 	fish: Fish
+	feedFish: (id: string, feedingAction: FeedingAction) => Promise<void>;
 }
 
 export function FishItem(props: FishItemProps): JSX.Element {
 	const {
+		_id,
 		name,
 		feedingDays,
 		withholdingDays,
@@ -44,13 +46,19 @@ export function FishItem(props: FishItemProps): JSX.Element {
 				</div>
 			</div>
 			<div className={ styles['fish-item-controls'] }>
-				<button className={ styles['fish-item-button'] }>
+				<button
+					className={ styles['fish-item-button'] }
+					onClick={ handleFeedButton }
+				>
 					{ fedUp
 							? 'Feed???'
 							: 'Feed'
 					}
 				</button>
-				<button className={ styles['fish-item-button'] }>
+				<button
+					className={ styles['fish-item-button'] }
+					onClick={ handleWithholdButton }
+				>
 					{
 						withholdedUp
 							? 'Wihhold???'
@@ -60,4 +68,12 @@ export function FishItem(props: FishItemProps): JSX.Element {
 			</div>
 		</li>
 	);
+
+	async function handleFeedButton(): Promise<void> {
+		props.feedFish(_id, FeedingAction.Feed);
+	}
+
+	async function handleWithholdButton(): Promise<void> {
+		props.feedFish(_id, FeedingAction.Withhold);
+	}
 }
