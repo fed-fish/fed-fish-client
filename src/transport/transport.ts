@@ -7,7 +7,7 @@ const enum HttpMethod {
 	Delete = 'DELETE',
 }
 
-const baseUrl = 'https://fed-fish-server.herokuapp.com/'; // http://192.168.3.28:3333 //http://localhost:3333
+const baseUrl = 'https://fed-fish-server.herokuapp.com'; // http://192.168.3.28:3333 //http://localhost:3333
 
 export async function fetchFish(): Promise<Fish[]> {
 	const fish = await apiFetch<Fish[]>(
