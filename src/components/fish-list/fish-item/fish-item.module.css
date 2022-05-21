@@ -30,6 +30,10 @@
 	cursor: pointer;
 }
 
+.warn-button {
+	background-color: #f27650;
+}
+
 .fish-item-button:hover {
 	background-color: white;
 	color: #75b585;

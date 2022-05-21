@@ -55,21 +55,21 @@ export function FishItem(props: FishItemProps): JSX.Element {
 			</div>
 			<div className={ styles['fish-item-controls'] }>
 				<button
-					className={ styles['fish-item-button'] }
+					className={ `${styles['fish-item-button']} ${styles['warn-button']}` }
 					onClick={ handleFeedButton }
 				>
 					{ fedUp
-							? 'Feed???'
+							? 'Overfeed'
 							: 'Feed'
 					}
 				</button>
 				<button
-					className={ styles['fish-item-button'] }
+					className={ `${styles['fish-item-button']} ${styles['warn-button']}` }
 					onClick={ handleWithholdButton }
 				>
 					{
 						withholdedUp
-							? 'Wihhold???'
+							? 'Overwihhold'
 							: 'Withhold'
 					}
 				</button>
