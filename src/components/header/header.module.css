@@ -9,6 +9,11 @@
 	text-align: center;
 }
 
+.home-link {
+	text-decoration: none;
+	color: inherit;
+}
+
 .add-fish-button {
 	padding: 10px 20px;
 	border: none;

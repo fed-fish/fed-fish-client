@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styles from './header.module.css';
 
 interface HeaderProps {
@@ -9,7 +10,9 @@ export function Header(props: HeaderProps): JSX.Element {
 	return (
 		<header className={ styles.header }>
 			<h1 className={ styles.logo }>
-				Fed fish
+				<Link to='/' className={ styles['home-link'] }>
+					Fed fish
+				</Link>
 			</h1>
 			<button
 				className={ styles['add-fish-button'] }
