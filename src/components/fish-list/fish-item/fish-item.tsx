@@ -55,7 +55,7 @@ export function FishItem(props: FishItemProps): JSX.Element {
 			</div>
 			<div className={ styles['fish-item-controls'] }>
 				<button
-					className={ `${styles['fish-item-button']} ${styles['warn-button']}` }
+					className={ `${styles['fish-item-button']} ${fedUp && styles['warn-button']}` }
 					onClick={ handleFeedButton }
 				>
 					{ fedUp
@@ -64,7 +64,7 @@ export function FishItem(props: FishItemProps): JSX.Element {
 					}
 				</button>
 				<button
-					className={ `${styles['fish-item-button']} ${styles['warn-button']}` }
+					className={ `${styles['fish-item-button']} ${withholdedUp && styles['warn-button']}` }
 					onClick={ handleWithholdButton }
 				>
 					{
