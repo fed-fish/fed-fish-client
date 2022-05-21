@@ -8,6 +8,7 @@
 .fish-form input {
 	padding: 10px 0 10px 30px;
 	border: none;
+	border-radius: 0;
 	border-bottom: 1px solid #245eb6;
 	outline: none;
 }
@@ -45,4 +46,3 @@
 	color: #245eb6;
 	cursor: pointer;
 }
-
