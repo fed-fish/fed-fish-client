@@ -7,12 +7,23 @@ interface FishFormProps {
 	addFish: (fish: PostFishParams) => Promise<void>;
 }
 
+type ColorType = Record<string, string>;
+
+const cardColors: ColorType[] = [
+	{ White: '#ffffff' },
+	{ Green: '#75b585' },
+	{ Yellow: '#f2cc50' },
+	{ Red: '#f27650' },
+	{ Purple: '#a150f2' },
+];
+
 export function FishForm(props: FishFormProps): JSX.Element {
 	const [name, setName] = useState('');
 	const [feedingDays, setFeedingDays] = useState<number | undefined>(undefined);
 	const [withholdingDays, setWithholdingDays] = useState<number | undefined>(undefined); 
 	const [fedDays, setFedDays] = useState<number | undefined>(undefined);
 	const [withholdedDays, setWithholdedDays] = useState<number | undefined>(undefined);
+	const [color, setColor] = useState<string | undefined>(undefined);
 
 	return (
 		<form
@@ -55,6 +66,14 @@ export function FishForm(props: FishFormProps): JSX.Element {
 				onChange={ handleWithholdedDaysInput }
 				required
 			/>
+			<select
+				className={ styles['color-select'] }
+				placeholder='Select color'
+				value={ color }
+				onChange={ handleColorSelect }
+			 >
+				{ makeColorSelectOptions() }
+			</select>
 
 			<button
 				className={ styles['add-fish-button'] }
@@ -64,6 +83,31 @@ export function FishForm(props: FishFormProps): JSX.Element {
 			</button>
 		</form>
 	);
+
+	function makeColorSelectOptions(): JSX.Element[] {
+		const selectColorOptions = cardColors.map((cardColor) => {
+			const colorValue = Object.values(cardColor)[0];
+			const colorName = Object.keys(cardColor)[0];
+
+			console.log(colorValue);
+
+			return (
+				<option
+					value={ colorValue }
+				>
+					{ colorName }
+				</option>
+			);
+		});
+
+		selectColorOptions.unshift(
+			<option value=''>
+				Default color
+			</option>
+		);
+
+		return selectColorOptions;
+	}
 
 	function handleNameInput(event: React.ChangeEvent<HTMLInputElement>): void {
 		setName(event.target.value);
@@ -85,6 +129,10 @@ export function FishForm(props: FishFormProps): JSX.Element {
 		setWithholdedDays(+event.target.value);
 	}
 
+	function handleColorSelect(event: React.ChangeEvent<HTMLSelectElement>): void {
+		setColor(event.target.value);
+	}
+
 	function submitFish(event: React.ChangeEvent<HTMLFormElement>): void {
 		event.preventDefault();
 
@@ -104,6 +152,7 @@ export function FishForm(props: FishFormProps): JSX.Element {
 			withholdingDays,
 			fedDays,
 			withholdedDays,
+			color,
 		});
 	}
 }

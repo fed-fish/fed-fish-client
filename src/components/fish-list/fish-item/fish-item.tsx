@@ -17,10 +17,18 @@ export function FishItem(props: FishItemProps): JSX.Element {
 		withholdedDays,
 		fedUp,
 		withholdedUp,
+		color,
 	} = props.fish;
 
+	const cardColor = {
+		backgroundColor: color,
+	};
+
 	return (
-		<li className={ styles['fish-item'] }>
+		<li
+			className={ styles['fish-item'] }
+			style={ cardColor }
+		>
 			<div className={ styles['fish-item-info'] }>
 				<h4>{ name }</h4>
 

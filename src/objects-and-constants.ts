@@ -7,6 +7,7 @@ export interface Fish {
 	withholdedDays: number;
 	fedUp: boolean,
 	withholdedUp: boolean;
+	color: string;
 }
 
 export interface PostFishParams {
@@ -15,6 +16,7 @@ export interface PostFishParams {
 	withholdingDays: number;
 	fedDays: number;
 	withholdedDays: number;
+	color?: string;
 }
 
 export enum FeedingAction {
